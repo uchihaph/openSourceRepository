@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="data-system" />
+        <module name="start-system" />
+        <module name="web-system" />
+        <module name="service-system" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="data-system" target="1.8" />
+      <module name="service-system" target="1.8" />
+      <module name="source-system" target="1.8" />
+      <module name="start-system" target="1.8" />
+      <module name="web-system" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="data-system" options="-parameters" />
+      <module name="service-system" options="-parameters" />
+      <module name="start-system" options="-parameters" />
+      <module name="web-system" options="-parameters" />
+    </option>
+  </component>
+</project>

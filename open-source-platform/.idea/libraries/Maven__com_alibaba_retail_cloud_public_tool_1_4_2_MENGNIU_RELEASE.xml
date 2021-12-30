@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.alibaba.retail.cloud:public-tool:1.4.2-MENGNIU-RELEASE">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../tools/repository/com/alibaba/retail/cloud/public-tool/1.4.2-MENGNIU-RELEASE/public-tool-1.4.2-MENGNIU-RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../../tools/repository/com/alibaba/retail/cloud/public-tool/1.4.2-MENGNIU-RELEASE/public-tool-1.4.2-MENGNIU-RELEASE-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../tools/repository/com/alibaba/retail/cloud/public-tool/1.4.2-MENGNIU-RELEASE/public-tool-1.4.2-MENGNIU-RELEASE-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
