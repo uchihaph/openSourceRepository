@@ -2,6 +2,7 @@ package com.open.source.platform.controller;
 
 
 import com.alibaba.cz.base.tool.log.Log;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -13,5 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class checkController {
 
     private static Log log = Log.getLogger(checkController.class);
+
+    @RequestMapping("/check")
+    public String method(){
+        return "this is so health";
+    }
 
 }
