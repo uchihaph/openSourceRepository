@@ -19,7 +19,7 @@ public class checkController {
     @RequestMapping("/check")
     public String method(){
         log.info("日志打印下");
-        return "this is so health";
+        return "this is so health！！！";
     }
 
 }
