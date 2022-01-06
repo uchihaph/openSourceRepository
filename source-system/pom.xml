@@ -28,11 +28,7 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.76</version>
         </dependency>
-        <dependency>
-            <groupId>com.alibaba.retail.cloud</groupId>
-            <artifactId>public-tool</artifactId>
-            <version>1.4.2-MENGNIU-RELEASE</version>
-        </dependency>
+
 
     </dependencies>
 
