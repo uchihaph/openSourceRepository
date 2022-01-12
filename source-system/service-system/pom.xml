@@ -11,5 +11,12 @@
 
     <artifactId>service-system</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>open.source.platform</groupId>
+            <artifactId>data-system</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>
