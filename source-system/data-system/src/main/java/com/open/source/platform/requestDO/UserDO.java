@@ -1,4 +1,4 @@
-package com.open.source.platform.dao;
+package com.open.source.platform.requestDO;
 
 import lombok.Data;
 

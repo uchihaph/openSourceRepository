@@ -19,6 +19,7 @@
         <module>service-system</module>
         <module>data-system</module>
         <module>start-system</module>
+        <module>common-system</module>
     </modules>
 
 
@@ -45,4 +46,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>
