@@ -1,6 +1,8 @@
 package com.open.source.platform.plugins;
 
-import com.baomidou.mybatisplus.exceptions.MybatisPlusException;
+import com.baomidou.mybatisplus.annotation.DbType;
+import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
+//import com.baomidou.mybatisplus.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.InjectionConfig;
 import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
@@ -8,9 +10,10 @@ import com.baomidou.mybatisplus.generator.config.GlobalConfig;
 import com.baomidou.mybatisplus.generator.config.StrategyConfig;
 import com.baomidou.mybatisplus.generator.config.converts.MySqlTypeConvert;
 import com.baomidou.mybatisplus.generator.config.rules.DbColumnType;
-import com.baomidou.mybatisplus.generator.config.rules.DbType;
+//import com.baomidou.mybatisplus.generator.config.rules.DbType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
-import com.baomidou.mybatisplus.toolkit.StringUtils;
+//import com.baomidou.mybatisplus.toolkit.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,7 +29,6 @@ public class MapperGenerator {
 
         //代码生成器
         AutoGenerator mpg = new AutoGenerator();
-
 
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
@@ -51,15 +53,15 @@ public class MapperGenerator {
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
         dsc.setDbType(DbType.MYSQL);
-        dsc.setTypeConvert(new MySqlTypeConvert() {
-            // 自定义数据库表字段类型转换【可选】
-            @Override
-            public DbColumnType processTypeConvert(String fieldType) {
-                System.out.println("转换类型：" + fieldType);
-                // 注意！！processTypeConvert 存在默认类型转换，如果不是你要的效果请自定义返回、非如下直接返回。
-                return super.processTypeConvert(fieldType);
-            }
-        });
+//        dsc.setTypeConvert(new MySqlTypeConvert() {
+//            // 自定义数据库表字段类型转换【可选】
+//            @Override
+//            public DbColumnType processTypeConvert(String fieldType) {
+//                System.out.println("转换类型：" + fieldType);
+//                // 注意！！processTypeConvert 存在默认类型转换，如果不是你要的效果请自定义返回、非如下直接返回。
+//                return super.processTypeConvert(fieldType);
+//            }
+//        });
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("123456");

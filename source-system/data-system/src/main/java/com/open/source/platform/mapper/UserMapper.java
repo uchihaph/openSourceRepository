@@ -1,12 +1,15 @@
 package com.open.source.platform.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.open.source.platform.entity.User;
-import com.baomidou.mybatisplus.mapper.BaseMapper;
-import org.apache.ibatis.annotations.Mapper;
+import com.open.source.platform.requestDO.UserDO;
+import org.apache.ibatis.annotations.Param;
+
 
 /**
  * <p>
-  *  Mapper 接口
+ * Mapper 接口
  * </p>
  *
  * @author hanguo
@@ -14,4 +17,5 @@ import org.apache.ibatis.annotations.Mapper;
  */
 public interface UserMapper extends BaseMapper<User> {
 
+    IPage<User> selectUserPageByCondition(IPage<User> iPage, @Param("userDO") UserDO userDO);
 }
