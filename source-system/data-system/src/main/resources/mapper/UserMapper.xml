@@ -36,5 +36,15 @@
         </where>
 
     </select>
+    <select id="selectDistinct" resultType="com.open.source.platform.entity.User">
+
+        SELECT DISTINCT(password) from user
+        <where>
+            <if test="name !=null and name !=''">
+                name like concat('%',#{name},'%')
+            </if>
+        </where>
+
+    </select>
 
 </mapper>

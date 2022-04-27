@@ -6,6 +6,8 @@ import com.open.source.platform.entity.User;
 import com.open.source.platform.requestDO.UserDO;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 
 /**
  * <p>
@@ -18,4 +20,6 @@ import org.apache.ibatis.annotations.Param;
 public interface UserMapper extends BaseMapper<User> {
 
     IPage<User> selectUserPageByCondition(IPage<User> iPage, @Param("userDO") UserDO userDO);
+
+    List<User> selectDistinct(String name);
 }

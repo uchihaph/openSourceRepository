@@ -2,11 +2,10 @@ package com.open.source.platform.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.open.source.platform.struct.result.Result;
 import com.open.source.platform.entity.User;
 import com.open.source.platform.requestDO.UserDO;
 import com.open.source.platform.service.UserService;
+import com.open.source.platform.struct.result.Result;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.util.StringUtils;
@@ -67,6 +66,13 @@ public class UserController {
         result.setResult(users.getRecords());
         result.setTotal(users.getTotal());
         return result;
+    }
+
+
+    @GetMapping("/distinct")
+    public Result<List<User>> distinct(){
+        List<User> users = userService.queryDistinct("是否");
+        return Result.success(users);
     }
 
 }

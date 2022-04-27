@@ -1,7 +1,6 @@
 package com.open.source.platform.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.open.source.platform.entity.User;
 import com.open.source.platform.requestDO.UserDO;
 
@@ -32,4 +31,11 @@ public interface UserService {
      * @return
      */
     Boolean checkLoginData(UserDO userDO);
+
+    /**
+     * 去重
+     * @return
+     */
+    List<User> queryDistinct(String name);
+
 }
