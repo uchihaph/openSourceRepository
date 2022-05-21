@@ -35,13 +35,13 @@ public class UserController {
     @Resource
     private UserService userService;
 
-    @PostMapping("/login")
+    @GetMapping("/login")
     public String userLogin(UserDO userDo) {
 
         log.info("用户登录操作：" + JSONObject.toJSONString(userDo));
 
         if (Objects.isNull(userDo) || StringUtils.isEmpty(userDo.getUsername()) || StringUtils.isEmpty(userDo.getPassword())) {
-            return "请输入用户名和密码";
+            throw new RuntimeException("PLEASE_INPUT_USERNAME_AND_PASSWORD");
         }
 
         Boolean loginResult = userService.checkLoginData(userDo);

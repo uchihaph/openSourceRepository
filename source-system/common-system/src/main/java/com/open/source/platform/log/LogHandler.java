@@ -27,35 +27,35 @@ public class LogHandler {
 
     @Around("cutMethod()")
     public Object doAroundAdvice(ProceedingJoinPoint proceedingJoinPoint) {
-        long startTime = System.currentTimeMillis();
-        Log log = Log.getLogger(AopUtils.getClazz(proceedingJoinPoint));
+//        long startTime = System.currentTimeMillis();
+//        Log log = Log.getLogger(AopUtils.getClazz(proceedingJoinPoint));
         Object result = null;
-        String argsBody = null;
-        try {
-            argsBody = AopUtils.getArgsString(proceedingJoinPoint);
-            result = proceedingJoinPoint.proceed();
-        } catch (ProcessException e) {
-            log.error(ErrorInfoUtils.buildErrorInfo(argsBody, proceedingJoinPoint, "Process", System.currentTimeMillis() - startTime), e);
-            throw e;
-        } catch (ErrorCodeException e) {
-            log.error(ErrorInfoUtils.buildErrorInfo(argsBody, proceedingJoinPoint, "Process", System.currentTimeMillis() - startTime), e);
-            throw e;
-        } catch (Throwable e) {
-            log.error(ErrorInfoUtils.buildErrorInfo(argsBody, proceedingJoinPoint, "Process", System.currentTimeMillis() - startTime), e);
-            ProcessInvoker processInvoker = AopUtils.getTargetMethodAnnotation(proceedingJoinPoint, ProcessInvoker.class);
-            if (processInvoker != null) {
-                throw new ProcessSystemException(processInvoker.errorCode(), e);
-            }
-        }
-
-        ProcessInvoker processInvoker = AopUtils.getTargetMethodAnnotation(proceedingJoinPoint, ProcessInvoker.class);
-        boolean printLog = processInvoker != null && processInvoker.printLog();
-        if (printLog) {
-            AccessLogBody accessLogBody = result == null ? AccessLogBody.DEFAULT_ACCESS_LOG(argsBody) : convertResult(argsBody, result);
-            log.info(buildAccessLog(proceedingJoinPoint, System.currentTimeMillis() - startTime, accessLogBody));
-        }
-
-
+//        String argsBody = null;
+//        try {
+//            argsBody = AopUtils.getArgsString(proceedingJoinPoint);
+//            result = proceedingJoinPoint.proceed();
+//        } catch (ProcessException e) {
+//            log.error(ErrorInfoUtils.buildErrorInfo(argsBody, proceedingJoinPoint, "Process", System.currentTimeMillis() - startTime), e);
+//            throw e;
+//        } catch (ErrorCodeException e) {
+//            log.error(ErrorInfoUtils.buildErrorInfo(argsBody, proceedingJoinPoint, "Process", System.currentTimeMillis() - startTime), e);
+//            throw e;
+//        } catch (Throwable e) {
+//            log.error(ErrorInfoUtils.buildErrorInfo(argsBody, proceedingJoinPoint, "Process", System.currentTimeMillis() - startTime), e);
+//            ProcessInvoker processInvoker = AopUtils.getTargetMethodAnnotation(proceedingJoinPoint, ProcessInvoker.class);
+//            if (processInvoker != null) {
+//                throw new ProcessSystemException(processInvoker.errorCode(), e);
+//            }
+//        }
+//
+//        ProcessInvoker processInvoker = AopUtils.getTargetMethodAnnotation(proceedingJoinPoint, ProcessInvoker.class);
+//        boolean printLog = processInvoker != null && processInvoker.printLog();
+//        if (printLog) {
+//            AccessLogBody accessLogBody = result == null ? AccessLogBody.DEFAULT_ACCESS_LOG(argsBody) : convertResult(argsBody, result);
+//            log.info(buildAccessLog(proceedingJoinPoint, System.currentTimeMillis() - startTime, accessLogBody));
+//        }
+//
+//
         return result;
     }
 }
