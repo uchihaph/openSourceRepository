@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.open.source.platform.mapper.UserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.open.source.platform.entity.User">
+        <id column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="email" property="email"/>
+        <result column="telephone" property="telephone"/>
+        <result column="nick" property="nick"/>
+        <result column="name" property="name"/>
+    </resultMap>
+    <select id="selectUserPageByCondition" resultType="com.open.source.platform.entity.User">
+        select * from user
+        <where>
+            1=1
+            <if test="userDO.username !='' and userDO.username !=null">
+                and username = #{userDO.username}
+            </if>
+            <if test="userDO.password !='' and userDO.password !=null">
+                and password = #{userDO.password}
+            </if>
+            <if test="userDO.name !='' and userDO.name !=null">
+                and name = #{userDO.name}
+            </if>
+            <if test="userDO.nick !='' and userDO.nick !=null">
+                and nick = #{userDO.nick}
+            </if>
+            <if test="userDO.telephone !='' and userDO.telephone !=null">
+                and telephone = #{userDO.telephone}
+            </if>
+            limit #{userDO.start},#{userDO.limit}
+
+        </where>
+
+    </select>
+    <select id="selectDistinct" resultType="com.open.source.platform.entity.User">
+
+        SELECT DISTINCT(password) from user
+        <where>
+            <if test="name !=null and name !=''">
+                name like concat('%',#{name},'%')
+            </if>
+        </where>
+
+    </select>
+
+</mapper>
