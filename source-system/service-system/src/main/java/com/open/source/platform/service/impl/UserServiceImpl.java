@@ -26,7 +26,7 @@ import java.util.Objects;
  * @since 2022-01-13
  */
 @Service
-public class UserServiceImpl implements UserService , InitializingBean {
+public class UserServiceImpl implements UserService  {
 
     @Resource
     private UserMapper userMapper;
@@ -89,8 +89,4 @@ public class UserServiceImpl implements UserService , InitializingBean {
         return false;
     }
 
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        System.out.println("bean初始化");
-    }
 }
