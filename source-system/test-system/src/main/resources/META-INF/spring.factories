@@ -1,0 +1,3 @@
+com.open.source.platform.test.test2.MyImportSelector=\
+ com.open.source.platform.test.test2.AutoConfiguration1,\
+ com.open.source.platform.test.test2.AutoConfiguration2
