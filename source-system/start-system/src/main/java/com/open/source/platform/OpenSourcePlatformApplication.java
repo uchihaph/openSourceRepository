@@ -4,6 +4,8 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.scheduling.annotation.EnableAsync;
 
@@ -22,7 +24,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 public class OpenSourcePlatformApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(OpenSourcePlatformApplication.class, args);
+        ConfigurableApplicationContext context = SpringApplication.run(OpenSourcePlatformApplication.class, args);
     }
 
 
