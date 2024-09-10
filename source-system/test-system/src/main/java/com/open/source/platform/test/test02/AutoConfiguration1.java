@@ -1,4 +1,4 @@
-package com.open.source.platform.test.test2;
+package com.open.source.platform.test.test02;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,11 +10,11 @@ import org.springframework.context.annotation.Configuration;
  * @date 2024/9/9
  */
 @Configuration
-public class AutoConfiguration2 {
+public class AutoConfiguration1 {
 
     @Bean
-    public Bean2 bean2() {
-        return new Bean2();
+    public Bean1 bean1() {
+        return new Bean1();
     }
 
 }

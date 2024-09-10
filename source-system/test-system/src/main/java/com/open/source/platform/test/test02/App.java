@@ -1,4 +1,4 @@
-package com.open.source.platform.test.test2;
+package com.open.source.platform.test.test02;
 
 import org.springframework.context.annotation.ConfigurationClassPostProcessor;
 import org.springframework.context.support.GenericApplicationContext;

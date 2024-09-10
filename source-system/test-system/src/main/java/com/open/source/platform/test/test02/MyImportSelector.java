@@ -1,11 +1,10 @@
-package com.open.source.platform.test.test2;
+package com.open.source.platform.test.test02;
 
 import org.springframework.context.annotation.ImportSelector;
 import org.springframework.core.io.support.SpringFactoriesLoader;
 import org.springframework.core.type.AnnotationMetadata;
 
 import java.util.List;
-import java.util.function.Predicate;
 
 /**
  * 请描述该类或接口的功能信息.
