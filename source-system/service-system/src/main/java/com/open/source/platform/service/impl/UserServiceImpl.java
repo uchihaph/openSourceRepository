@@ -54,16 +54,14 @@ public class UserServiceImpl implements UserService  {
         }
 
 
-//        QueryWrapper<User> userWrapper = new QueryWrapper<>();
-//        userWrapper.eq(false, "username", userDO.getUsername());
-//        userWrapper.eq(false, "password", userDO.getPassword());
-//        userWrapper.eq(false, "telephone", userDO.getTelephone());
-//        userWrapper.eq(false, "nick", userDO.getNick());
-//        userWrapper.like(false, "name", userDO.getName());
-//
-//        return userMapper.selectPage(new Page<User>(userDO.getPageNumber(), userDO.getPageSize()), userWrapper);
+        QueryWrapper<User> userWrapper = new QueryWrapper<>();
+        userWrapper.eq(false, "username", userDO.getUsername());
+        userWrapper.eq(false, "password", userDO.getPassword());
+        userWrapper.eq(false, "telephone", userDO.getTelephone());
+        userWrapper.eq(false, "nick", userDO.getNick());
+        userWrapper.like(false, "name", userDO.getName());
 
-        return userMapper.selectUserPageByCondition(new Page<>(userDO.getPageNumber(), userDO.getPageSize()), userDO);
+        return userMapper.selectPage(new Page<User>(userDO.getPageNumber(), userDO.getPageSize()), userWrapper);
 
     }
 
