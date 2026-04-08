@@ -23,7 +23,7 @@ public class AsyncTestController {
         String field = "nodeA";
 
         if ("nodeA".equals(field)) {
-            Boolean aBoolean = userService.testAsync();
+            Boolean aBoolean = userService. testAsync();
             if (true) {
                 return field;
             } else {

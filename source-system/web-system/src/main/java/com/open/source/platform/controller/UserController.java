@@ -85,4 +85,9 @@ public class UserController {
         getDiTestService1.printName();
         return Result.success("测试di");
     }
+
+    @GetMapping("/testTransaction")
+    public Result<String> testTransaction() {
+        return Result.success("测试多线程事务");
+    }
 }

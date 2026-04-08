@@ -1,5 +1,7 @@
 package com.open.source.platform.struct.result;
 
+import lombok.Data;
+
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
@@ -10,6 +12,7 @@ import java.util.Map;
  * @date 2022/1/14
  * @Description 返回体结构
  */
+@Data
 public class Result<T> implements Serializable {
     private boolean success;
     private Integer code;
@@ -30,69 +33,6 @@ public class Result<T> implements Serializable {
         this.message = message;
     }
 
-    public boolean isSuccess() {
-        return this.success;
-    }
-
-    public void setSuccess(boolean success) {
-        this.success = success;
-    }
-
-    public T getResult() {
-        return this.result;
-    }
-
-    public void setResult(T result) {
-        this.result = result;
-    }
-
-    public long getTotal() {
-        return this.total;
-    }
-
-    public void setTotal(long total) {
-        this.total = total;
-    }
-
-    public String getErrorCode() {
-        return this.errorCode;
-    }
-
-    public void setErrorCode(String errorCode) {
-        this.errorCode = errorCode;
-    }
-
-    public String getMessage() {
-        return this.message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public Map<String, Object> getExt() {
-        return this.ext;
-    }
-
-    public void setExt(Map<String, Object> ext) {
-        this.ext = ext;
-    }
-
-    public Map<String, Object> getValidateErrors() {
-        return this.validateErrors;
-    }
-
-    public void setValidateErrors(Map<String, Object> validateErrors) {
-        this.validateErrors = validateErrors;
-    }
-
-    public Map<String, Object> getHeader() {
-        return this.header;
-    }
-
-    public void setHeader(Map<String, Object> header) {
-        this.header = header;
-    }
 
     public static <T> Result<T> success(T data) {
         return success(data, (String)null, (String)null);
