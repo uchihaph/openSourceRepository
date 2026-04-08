@@ -1,10 +1,7 @@
 package com.open.source.platform.mapper;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.open.source.platform.entity.User;
-import com.open.source.platform.requestDO.UserDO;
-import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
@@ -17,9 +14,8 @@ import java.util.List;
  * @author hanguo
  * @since 2022-01-13
  */
-public interface UserMapper extends BaseMapper<User> {
+@Mapper
+public interface UserMapper {
 
-    IPage<User> selectUserPageByCondition(IPage<User> iPage, @Param("userDO") UserDO userDO);
-
-    List<User> selectDistinct(String name);
+    List<User> selectUser(String name);
 }

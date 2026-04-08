@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService  {
 
 
     @Override
-    public IPage<User> queryUser(UserDO userDO) {
+    public List<User> queryUser(UserDO userDO) {
         if (Objects.isNull(userDO)) {
             return null;
         }
@@ -62,7 +62,7 @@ public class UserServiceImpl implements UserService  {
         userWrapper.like(false, "name", userDO.getName());
 
 
-        return userMapper.selectPage(new Page<User>(userDO.getPageNumber(), userDO.getPageSize()), userWrapper);
+        return userMapper.selectUser(null);
 
     }
 
@@ -70,7 +70,7 @@ public class UserServiceImpl implements UserService  {
         QueryWrapper<User> userWrapper = new QueryWrapper<>();
         userWrapper.eq(true, "username", userDO.getUsername());
         userWrapper.eq(true, "password", userDO.getPassword());
-        List<User> users = userMapper.selectList(userWrapper);
+        List<User> users = userMapper.selectUser(null);
         if (!CollectionUtils.isEmpty(users)) {
             return true;
         }
@@ -79,13 +79,18 @@ public class UserServiceImpl implements UserService  {
 
     @Override
     public List<User> queryDistinct(String name) {
-        return userMapper.selectDistinct(name);
+        return userMapper.selectUser(name);
     }
 
     @Override
     @Async
     public Boolean testAsync() {
         return false;
+    }
+
+    @Override
+    public void operatedDb() {
+
     }
 
 }

@@ -22,7 +22,7 @@ public interface UserService {
      * @param userDO
      * @return
      */
-    IPage<User> queryUser(UserDO userDO);
+    List<User> queryUser(UserDO userDO);
 
     /**
      * 检查登录的用户数据
@@ -45,5 +45,10 @@ public interface UserService {
      * @return
      */
     Boolean testAsync();
+
+    /**
+     * 多线程操作数据库
+     */
+    void operatedDb();
 
 }

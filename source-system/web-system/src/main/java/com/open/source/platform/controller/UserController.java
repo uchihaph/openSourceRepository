@@ -61,13 +61,13 @@ public class UserController {
         log.info("查询用户操作：" + JSONObject.toJSONString(userDo));
         Result<List<User>> result = Result.success(new ArrayList<>());
 
-        IPage<User> users = userService.queryUser(userDo);
+        List<User> users = userService.queryUser(userDo);
         if (Objects.isNull(users)) {
             result.setTotal(0);
         }
 
-        result.setResult(users.getRecords());
-        result.setTotal(users.getTotal());
+        result.setResult(users);
+        result.setTotal(users.size());
         return result;
     }
 
@@ -88,6 +88,7 @@ public class UserController {
 
     @GetMapping("/testTransaction")
     public Result<String> testTransaction() {
+        userService.operatedDb();
         return Result.success("测试多线程事务");
     }
 }
