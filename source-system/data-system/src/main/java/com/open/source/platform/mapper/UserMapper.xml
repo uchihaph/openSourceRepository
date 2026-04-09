@@ -8,4 +8,7 @@
         select username ,telephone from user
 
     </select>
+    <delete id="deleteUser">
+        delete from user where id = #{id}
+    </delete>
 </mapper>

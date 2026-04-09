@@ -8,14 +8,21 @@ import com.open.source.platform.entity.User;
 import com.open.source.platform.mapper.UserMapper;
 import com.open.source.platform.requestDO.UserDO;
 import com.open.source.platform.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
+import java.beans.Transient;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 /**
  * <p>
@@ -25,13 +32,16 @@ import java.util.Objects;
  * @author hanguo
  * @since 2022-01-13
  */
+@Slf4j
 @Service
-public class UserServiceImpl implements UserService  {
+public class UserServiceImpl implements UserService {
 
     @Resource
     private UserMapper userMapper;
 
-
+    @Autowired
+    @Lazy
+    private UserServiceImpl userService;
 
 
     @Override
@@ -89,8 +99,26 @@ public class UserServiceImpl implements UserService  {
     }
 
     @Override
+    @Transactional
     public void operatedDb() {
 
+        userMapper.deleteUser(1L);
+
+        CompletableFuture<Void> future = CompletableFuture.runAsync(() -> {
+            userService.deleteLs();
+        });
+        try {
+            future.get();
+        } catch (Exception e) {
+            log.error("子线程出现异常");
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Transactional
+    public void deleteLs() {
+        userMapper.deleteUser(2L);
+        throw new RuntimeException("测试删除失败");
     }
 
 }

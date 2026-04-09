@@ -86,7 +86,7 @@ public class UserController {
         return Result.success("测试di");
     }
 
-    @GetMapping("/testTransaction")
+    @GetMapping("/testThreadTransaction")
     public Result<String> testTransaction() {
         userService.operatedDb();
         return Result.success("测试多线程事务");

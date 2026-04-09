@@ -18,4 +18,6 @@ import java.util.List;
 public interface UserMapper {
 
     List<User> selectUser(String name);
+
+    void deleteUser(Long id);
 }
