@@ -3,6 +3,7 @@ package com.open.source.platform.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.open.source.platform.ResponseCodeEnum;
+import com.open.source.platform.config.InitialBean;
 import com.open.source.platform.entity.User;
 import com.open.source.platform.requestDO.UserDO;
 import com.open.source.platform.service.UserService;
@@ -10,6 +11,8 @@ import com.open.source.platform.struct.result.Result;
 import com.open.source.platform.test.DITestService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,6 +39,9 @@ public class UserController {
 
     @Resource
     private DITestService getDiTestService1;
+
+    @Autowired
+    private InitialBean initialBean;
 
     @PostMapping("/login")
     public Result userLogin(@RequestBody UserDO userDo) {
@@ -90,5 +96,10 @@ public class UserController {
     public Result<String> testTransaction() {
         userService.operatedDb();
         return Result.success("测试多线程事务");
+    }
+
+    @GetMapping("/hello")
+    public Result<String> hello(){
+        return Result.success(initialBean.printHello());
     }
 }
