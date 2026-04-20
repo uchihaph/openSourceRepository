@@ -16,7 +16,7 @@ import java.util.List;
  * @since 2022-01-13
  */
 @Mapper
-public interface UserMapper {
+public interface UserMapper extends BaseMapper<User> {
 
     List<User> selectUser(String name);
 
