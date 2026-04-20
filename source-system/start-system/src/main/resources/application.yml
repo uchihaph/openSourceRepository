@@ -1,7 +1,7 @@
 #jdbc_config
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/open_source_platform?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://localhost:3306/open_source_platform?useUnicode=true&characterEncoding=utf8&useSSL=true&requireSSL=true&serverTimezone=Asia/Shanghai
     username: root
     password: 123456
     driverClassName: com.mysql.cj.jdbc.Driver

@@ -2,6 +2,7 @@ package com.open.source.platform.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.github.pagehelper.PageHelper;
 import com.open.source.platform.ResponseCodeEnum;
 import com.open.source.platform.config.InitialBean;
 import com.open.source.platform.entity.User;
@@ -67,6 +68,7 @@ public class UserController {
         log.info("查询用户操作：" + JSONObject.toJSONString(userDo));
         Result<List<User>> result = Result.success(new ArrayList<>());
 
+        PageHelper.startPage(1,1);
         List<User> users = userService.queryUser(userDo);
         if (Objects.isNull(users)) {
             result.setTotal(0);

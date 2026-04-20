@@ -1,5 +1,6 @@
 package com.open.source.platform.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.open.source.platform.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
