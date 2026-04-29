@@ -68,7 +68,7 @@ public class UserController {
         log.info("查询用户操作：" + JSONObject.toJSONString(userDo));
         Result<List<User>> result = Result.success(new ArrayList<>());
 
-        PageHelper.startPage(1,1);
+        PageHelper.startPage(1, 1);
         List<User> users = userService.queryUser(userDo);
         if (Objects.isNull(users)) {
             result.setTotal(0);
@@ -101,7 +101,7 @@ public class UserController {
     }
 
     @GetMapping("/hello")
-    public Result<String> hello(){
+    public Result<String> hello() {
         return Result.success(initialBean.printHello());
     }
 }
